@@ -1,0 +1,15 @@
+{
+  "name": "n2ygk-ax25_repos",
+  "version": "0.1.0",
+  "author": "n2ygk",
+  "summary": "makes repos available (locally) for ax25 RPMs that are not available in the usual places.",
+  "license": "Apache 2.0",
+  "source": "https://github.com/n2ygk/puppet-ax25-repos",
+  "project_page": "https://github.com/n2ygk/puppet-ax25-repos",
+  "issues_url": "https://github.com/n2ygk/puppet-ax25-repos/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"},
+    {"name":"example42-yum","version_requirement":">= 2.1.28"}
+  ]
+}
+
