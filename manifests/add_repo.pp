@@ -5,7 +5,7 @@ class ax25_repos::add_repo ($reponame = undef) {
     recurse => true,
   } ->
   exec {'createrepo':
-    command => "createrepo /var/local/repos/${reponame}",
+    command => "/usr/bin/createrepo /var/local/repos/${reponame}",
   } ->
   yum::managed_yumrepo { "ax25":
     descr    => 'Ham Radio AX25 libraries and tools',
