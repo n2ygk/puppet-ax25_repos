@@ -1,6 +1,6 @@
 {
   "name": "n2ygk-ax25_repos",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "n2ygk",
   "summary": "makes repos available (locally) for ax25 RPMs that are not available in the usual places.",
   "license": "Apache 2.0",

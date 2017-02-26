@@ -23,7 +23,7 @@ class ax25_repos::install ($reponame = undef) {
     $pkgs = [ 'emacs','cvs','wget','zlib-devel', 'ncurses-devel',
               'libXt-devel', 'libXi-devel', 'fltk-devel', 'libX11-devel',
               'mesa-libGL-devel','gtk2-devel','alsa-lib-devel','alsa-utils',
-              'libxml2-devel','audiofile-devel','hamlib-devel',
+              'libxml2-devel','audiofile-devel', # 'hamlib-devel',
               'xorg-x11-xauth','xterm','xorg-x11-fonts-100dpi','xorg-x11-fonts-ISO8859-1-100dpi',
               'rpm-build', 'createrepo']
     ensure_packages($pkgs, {'ensure' => 'installed'})

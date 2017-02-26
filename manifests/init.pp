@@ -9,7 +9,8 @@
 #
 # === Parameters
 #
-# None
+# [rpmbuild]
+#  Build the SRPMS. Default is undef.
 #
 # === Variables
 #
@@ -17,7 +18,9 @@
 #
 # === Examples
 #
-#  include ax25_repos
+# include ax25_repos
+#
+# class { 'ax25_repos': rpmbuild => true }
 #
 # === Authors
 #
@@ -27,11 +30,21 @@
 #
 # Copyright 2016 Alan Crosswell
 #
-class ax25_repos {
+class ax25_repos (
+  $rpmbuild = $::ax25_repos::params::rpmbuild,
+) {
   $reponame = "ax25-el${::operatingsystemmajrelease}-${::operatingsystem}-repo".downcase
   anchor { 'ax25_repos::begin': } ->
-  class { 'ax25_repos::install': reponame => $reponame} ->
-  class { 'ax25_repos::build': reponame => $reponame} ->
-  class { 'ax25_repos::add_repo': reponame => $reponame} ->
+  class { 'ax25_repos::install': reponame => $reponame}
+  if $::ax25_repos::rpmbuild {
+    class { 'ax25_repos::build':
+      require => Class['ax25_repos::install'],
+      reponame => $reponame
+    } ->
+    class { 'ax25_repos::add_repo':
+      before   => Anchor['ax25_repos::end'],
+      reponame => $reponame
+    }
+  }
   anchor { 'ax25_repos::end': }
 }
